@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import './App.css'
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
   const [character, setCharacter] = useState(false)
   const [password, setPassword] = useState('')
 
+ 
   // Define the password generator
   const passwordGenerator = useCallback(() => {
     let pass = ""
@@ -40,7 +41,9 @@ function App() {
     setCharacter(!character)
   }
 
+  const passwordRef=useRef(null)
   const copyToClipboard = () => {
+    passwordRef.current?.select()
     navigator.clipboard.writeText(password)
       .then(() => {
         alert('Password copied to clipboard!')
