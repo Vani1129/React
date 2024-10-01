@@ -1,5 +1,4 @@
-
-12MegaProject/src/.env# Logs
+# Logs
 logs
 *.log
 npm-debug.log*
